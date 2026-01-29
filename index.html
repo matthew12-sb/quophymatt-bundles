@@ -2,73 +2,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuophyMatt Bundles</title>
+  <title>Data Bundle Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background:#f4f6fb; }
-    header { background:#0b3c8a; color:#fff; padding:20px; text-align:center; }
-    .container { padding:20px; max-width:1100px; margin:auto; }
-    .card { background:#fff; border-radius:10px; padding:15px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,.1); }
-    h2 { color:#0b3c8a; }
-    ul { list-style:none; padding:0; }
-    li { padding:6px 0; border-bottom:1px solid #eee; }
-    .order-btn { display:inline-block; margin-top:10px; padding:10px 15px; background:#0b3c8a; color:#fff; text-decoration:none; border-radius:6px; }
-    footer { text-align:center; padding:15px; background:#0b3c8a; color:#fff; }
+    :root {
+      --bg: #0b1220;
+      --card: #111a2e;
+      --accent: #16a34a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --info: #0ea5e9;
+    }
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+    }
+    .header {
+      padding: 16px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .status { background: #052e16; color: #22c55e; padding: 6px 12px; border-radius: 999px; font-size: 12px; }
+    .container { padding: 16px; }
+    .card {
+      background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 12px;
+    }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat h2 { margin: 0; font-size: 22px; }
+    .stat p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+    .progress { height: 6px; background: #020617; border-radius: 999px; margin-top: 10px; overflow: hidden; }
+    .bar { height: 100%; width: 0%; background: var(--accent); }
+    .btn {
+      width: 100%; border: none; border-radius: 14px; padding: 14px; font-size: 16px; font-weight: 600; margin-top: 10px;
+      cursor: pointer;
+    }
+    .btn.buy { background: var(--accent); color: #052e16; }
+    .btn.bulk { background: #020617; color: var(--text); }
+    .btn.topup { background: var(--info); color: #020617; }
+    .sidebar {
+      position: fixed; top: 0; left: -100%; width: 80%; height: 100%; background: linear-gradient(180deg,#020617,#020617);
+      padding: 20px; transition: 0.3s; z-index: 10;
+    }
+    .sidebar.active { left: 0; }
+    .menu-item { padding: 14px; border-radius: 12px; margin-bottom: 8px; color: var(--text); }
+    .menu-item.active { background: var(--card); }
+    .menu-btn { font-size: 22px; cursor: pointer; }
   </style>
 </head>
-<body><header>
-  <h1>QuophyMatt Bundles</h1>
-  <p>Your Trusted Data Plug</p>
-</header><div class="container">  <div class="card">
-    <h2>Place Your Order</h2>
-    <form onsubmit="sendWhatsApp(); return false;">
-      <label>Full Name</label><br />
-      <input type="text" id="name" required style="width:100%;padding:8px;margin-bottom:10px" /><label>Phone Number</label><br />
-  <input type="tel" id="phone" required style="width:100%;padding:8px;margin-bottom:10px" />
+<body>
+  <div class="header">
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <div>
+      <div style="font-size:14px">Good morning</div>
+      <strong>MATTHEW</strong>
+    </div>
+    <span class="status">Active</span>
+  </div>  <div class="container">
+    <div class="card">
+      <h3>Total Orders</h3>
+      <h2>0</h2>
+      <p>₵0.00 / 0.00 GB</p>
+      <div class="progress"><div class="bar" style="width:0%"></div></div>
+    </div><div class="stats">
+  <div class="card stat"><h2>0</h2><p>Waiting</p></div>
+  <div class="card stat"><h2>0</h2><p>Pending</p></div>
+  <div class="card stat"><h2>0</h2><p>Processing</p></div>
+  <div class="card stat"><h2>0</h2><p>Successful</p></div>
+  <div class="card stat"><h2>0</h2><p>Cancelled</p></div>
+</div>
 
-  <label>Network</label><br />
-  <select id="network" required style="width:100%;padding:8px;margin-bottom:10px">
-    <option value="MTN">MTN</option>
-    <option value="AirtelTigo">AirtelTigo</option>
-    <option value="Telecel">Telecel</option>
-  </select>
+<button class="btn buy">⚡ Buy Data</button>
+<button class="btn bulk">⌨ Bulk Order</button>
+<button class="btn topup">💳 Top Up</button>
 
-  <label>Bundle Size</label><br />
-  <input type="text" id="bundle" placeholder="e.g. 10GB" required style="width:100%;padding:8px;margin-bottom:10px" />
-
-  <button class="order-btn" type="submit">Send Order</button>
-</form>
-
-  </div>  <div class="card">
-    <h2>MTN Bundles</h2>
-    <ul>
-      <li>1GB – GHS 5.50</li>
-      <li>2GB – GHS 9.50</li>
-      <li>3GB – GHS 14.50</li>
-      <li>4GB – GHS 19.00</li>
-      <li>5GB – GHS 23.50</li>
-      <li>6GB – GHS 28.50</li>
-      <li>8GB – GHS 36.50</li>
-      <li>10GB – GHS 43.50</li>
-      <li>20GB – GHS 85.00</li>
-      <li>30GB – GHS 125.00</li>
-      <li>40GB – GHS 160.00</li>
-    </ul>
-  </div>  <div class="card">
-    <h2>Order Now</h2>
-    <p>Click below to place your order via WhatsApp</p>
-    <a class="order-btn" href="https://wa.me/233531210165" target="_blank">Order on WhatsApp</a>
-  </div></div><footer>
-  <p>WhatsApp/Call: 053 121 0165</p>
-  <p>&copy; 2026 QuophyMatt Bundles</p>
-</footer><script>
-function sendWhatsApp(){
-  var name = document.getElementById('name').value;
-  var phone = document.getElementById('phone').value;
-  var network = document.getElementById('network').value;
-  var bundle = document.getElementById('bundle').value;
-
-  var message = `Hello QuophyMatt Bundles,%0A%0AName: ${name}%0APhone: ${phone}%0ANetwork: ${network}%0ABundle: ${bundle}`;
-  window.open(`https://wa.me/233531210165?text=${message}`, '_blank');
-}
-</script></body>
+  </div>  <div class="sidebar" id="sidebar">
+    <h3>MATTHEW</h3>
+    <p>Wallet Balance: ₵0.00</p>
+    <div class="menu-item active">Dashboard</div>
+    <div class="menu-item">Orders</div>
+    <div class="menu-item">Transactions</div>
+    <div class="menu-item">Bundles</div>
+    <div class="menu-item">API</div>
+    <div class="menu-item">Profile</div>
+    <div class="menu-item" style="color:var(--danger)">Logout</div>
+  </div>  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script></body>
 </html>
