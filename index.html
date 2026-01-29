@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Bundle Dashboard</title>
+  <title>Quophy X Packs Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -54,7 +54,7 @@
     <span class="menu-btn" onclick="toggleMenu()">☰</span>
     <div>
       <div style="font-size:14px">Good morning</div>
-      <strong>MATTHEW</strong>
+      <strong>QUOPHY X PACKS</strong>
     </div>
     <span class="status">Active</span>
   </div>  <div class="container">
@@ -71,20 +71,20 @@
   <div class="card stat"><h2>0</h2><p>Cancelled</p></div>
 </div>
 
-<button class="btn buy">⚡ Buy Data</button>
-<button class="btn bulk">⌨ Bulk Order</button>
-<button class="btn topup">💳 Top Up</button>
+<a href="https://datapacks.shop/user/buy.php" class="btn buy" style="display:block;text-align:center;text-decoration:none;">⚡ Buy Data</a>
+<a href="https://datapacks.shop/user/bulk.php" class="btn bulk" style="display:block;text-align:center;text-decoration:none;">⌨ Bulk Order</a>
+<a href="https://datapacks.shop/user/topup.php" class="btn topup" style="display:block;text-align:center;text-decoration:none;">💳 Top Up</a>
 
   </div>  <div class="sidebar" id="sidebar">
-    <h3>MATTHEW</h3>
-    <p>Wallet Balance: ₵0.00</p>
-    <div class="menu-item active">Dashboard</div>
-    <div class="menu-item">Orders</div>
-    <div class="menu-item">Transactions</div>
-    <div class="menu-item">Bundles</div>
-    <div class="menu-item">API</div>
-    <div class="menu-item">Profile</div>
-    <div class="menu-item" style="color:var(--danger)">Logout</div>
+    <h3>QUOPHY X PACKS</h3>
+    <p>Wallet Balance: ₵0.00<br><small style="color:#94a3b8">Powered by Monisco</small></p>
+    <a href="https://datapacks.shop/user/dashboard.php" class="menu-item active" style="display:block;text-decoration:none;">Dashboard</a>
+    <a href="https://datapacks.shop/user/orders.php" class="menu-item" style="display:block;text-decoration:none;">Orders</a>
+    <a href="https://datapacks.shop/user/transactions.php" class="menu-item" style="display:block;text-decoration:none;">Transactions</a>
+    <a href="https://datapacks.shop/user/bundles.php" class="menu-item" style="display:block;text-decoration:none;">Bundles</a>
+    <a href="https://datapacks.shop/user/api.php" class="menu-item" style="display:block;text-decoration:none;">API</a>
+    <a href="https://datapacks.shop/user/profile.php" class="menu-item" style="display:block;text-decoration:none;">Profile</a>
+    <a href="https://datapacks.shop/logout.php" class="menu-item" style="display:block;text-decoration:none;color:var(--danger)">Logout</a>
   </div>  <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
