@@ -19,6 +19,26 @@
   <h1>QuophyMatt Bundles</h1>
   <p>Your Trusted Data Plug</p>
 </header><div class="container">  <div class="card">
+    <h2>Place Your Order</h2>
+    <form onsubmit="sendWhatsApp(); return false;">
+      <label>Full Name</label><br />
+      <input type="text" id="name" required style="width:100%;padding:8px;margin-bottom:10px" /><label>Phone Number</label><br />
+  <input type="tel" id="phone" required style="width:100%;padding:8px;margin-bottom:10px" />
+
+  <label>Network</label><br />
+  <select id="network" required style="width:100%;padding:8px;margin-bottom:10px">
+    <option value="MTN">MTN</option>
+    <option value="AirtelTigo">AirtelTigo</option>
+    <option value="Telecel">Telecel</option>
+  </select>
+
+  <label>Bundle Size</label><br />
+  <input type="text" id="bundle" placeholder="e.g. 10GB" required style="width:100%;padding:8px;margin-bottom:10px" />
+
+  <button class="order-btn" type="submit">Send Order</button>
+</form>
+
+  </div>  <div class="card">
     <h2>MTN Bundles</h2>
     <ul>
       <li>1GB – GHS 5.50</li>
@@ -40,5 +60,15 @@
   </div></div><footer>
   <p>WhatsApp/Call: 053 121 0165</p>
   <p>&copy; 2026 QuophyMatt Bundles</p>
-</footer></body>
+</footer><script>
+function sendWhatsApp(){
+  var name = document.getElementById('name').value;
+  var phone = document.getElementById('phone').value;
+  var network = document.getElementById('network').value;
+  var bundle = document.getElementById('bundle').value;
+
+  var message = `Hello QuophyMatt Bundles,%0A%0AName: ${name}%0APhone: ${phone}%0ANetwork: ${network}%0ABundle: ${bundle}`;
+  window.open(`https://wa.me/233531210165?text=${message}`, '_blank');
+}
+</script></body>
 </html>
